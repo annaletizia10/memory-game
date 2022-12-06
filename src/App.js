@@ -4,6 +4,7 @@ import Header from "./Components/Header/Header"
 import './App.css'
 import images from "./imagesArray.js"
 import {shuffle} from 'lodash'
+import Winner from "./Components/Winner/Winner"
 
 function App() {
 
@@ -46,13 +47,13 @@ function App() {
     setCards(shuffle([...images]))
   }
 
-  if(matches.length === cards.length){
-    alert("you won!!")
-  }
 
   console.log({matches: matches, activePair: activePair})
   return (
-    <div className="container">
+    <div>
+      {matches.length === cards.length ? <Winner handleClick={handleButtonClick}/>
+      :
+      <div className="container">
       <Header handleClick={handleButtonClick}/>
       <div className="board-box">
         {cards.map((card, index) => {
@@ -69,7 +70,8 @@ function App() {
             />
           )
           })}
-      </div>
+          </div>
+      </div>}
     </div>
   );
 }
