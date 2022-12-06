@@ -1,5 +1,6 @@
-import {useState, useEffect} from "react"
-import Card from "./Components/Card"
+import {useState} from "react"
+import Card from "./Components/Card/Card"
+import Header from "./Components/Header/Header"
 import './App.css'
 import images from "./imagesArray.js"
 import {shuffle} from 'lodash'
@@ -9,39 +10,50 @@ function App() {
   const [cards, setCards] = useState(shuffle([...images]))
   const [activePair, setActivePair] = useState([])
   const [matches, setMatches] = useState([])
-  const [isActive, setIsPair] = useState(false)
+  const [isPair, setIsPair] = useState(false)
 
 
   function handleCards(name, number){
+
     const card = {name, number}
-    const found = matches.filter(element => element === card.number)
-    if(found.length === 0 && activePair.length === 0 ){
+    const foundMatch = matches.filter(element => element === card.number)
+
+    if(foundMatch.length === 0 && activePair.length === 0 ){
       setActivePair([card])
     }
-    if(found.length === 0 && activePair.length === 1){
+    if(foundMatch.length === 0 && activePair.length === 1){
       setActivePair([...activePair, card])
 
       const firstCard = activePair[0]
       const secondCard = card
     
-        if(firstCard.name === secondCard.name){
-          setMatches([...matches, firstCard.number, secondCard.number])
-        }
-        setIsPair(prevState => !prevState)
+      if(firstCard.name === secondCard.name && firstCard.number !== secondCard.number){
+        setMatches([...matches, firstCard.number, secondCard.number])
+      }
+      setIsPair(prevState => !prevState)
     }
-    if(found.length === 0 && activePair.length === 2){
+    if(foundMatch.length === 0 && activePair.length === 2){
       setActivePair([card])
     }
 
+  }
+
+  function handleButtonClick(){
+    console.log("clicked")
+    setActivePair([])
+    setMatches([])
+    setIsPair(false)
+    setCards(shuffle([...images]))
   }
 
   if(matches.length === cards.length){
     alert("you won!!")
   }
 
+  console.log({matches: matches, activePair: activePair})
   return (
     <div className="container">
-      <h1>Memory Game</h1>
+      <Header handleClick={handleButtonClick}/>
       <div className="board-box">
         {cards.map((card, index) => {
           return (
@@ -52,7 +64,8 @@ function App() {
               key={index}  
               handleCards={handleCards}
               matches={matches}
-              isPair={isActive}
+              activePair={activePair}
+              isPair={isPair}
             />
           )
           })}

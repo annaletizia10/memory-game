@@ -10,23 +10,23 @@ import img8 from "./images/008.png"
 import img9 from "./images/009.png"
 
 export default [
-    {name: "alce", src: img1, number: 1},
-    {name: "alce", src: img1, number: 2},
-    {name: "oso", src: img2, number: 3},
-    {name: "oso", src: img2, number: 4},
-    {name: "concha", src: img3, number: 5},
-    {name: "concha", src: img3, number: 6},
-    {name: "corbata", src: img4, number: 7},
-    {name: "corbata", src: img4, number: 8},
-    {name: "cuerno", src: img5, number: 9},
-    {name: "cuerno", src: img5, number: 10},
-    {name: "colibri", src: img6, number: 11},
-    {name: "colibri", src: img6, number: 12},
-    {name: "oreja", src: img7, number: 13},
-    {name: "oreja", src: img7, number: 14},
-    {name: "puerco", src: img8, number: 15},
-    {name: "puerco", src: img8, number: 16},
-    {name: "ballena", src: img9, number: 17},
-    {name: "ballena", src: img9, number: 18}
+    {name: "001", src: img1, number: 1},
+    {name: "001", src: img1, number: 2},
+    {name: "002", src: img2, number: 3},
+    {name: "002", src: img2, number: 4},
+    {name: "003", src: img3, number: 5},
+    {name: "003", src: img3, number: 6},
+    {name: "004", src: img4, number: 7},
+    {name: "004", src: img4, number: 8},
+    {name: "005", src: img5, number: 9},
+    {name: "005", src: img5, number: 10},
+    {name: "006", src: img6, number: 11},
+    {name: "006", src: img6, number: 12},
+    {name: "007", src: img7, number: 13},
+    {name: "007", src: img7, number: 14},
+    {name: "008", src: img8, number: 15},
+    {name: "008", src: img8, number: 16},
+    {name: "009", src: img9, number: 17},
+    {name: "009", src: img9, number: 18}
 ]
    
